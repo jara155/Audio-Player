@@ -18,16 +18,15 @@
 ## Features
 - Made by Flutter
 - Android
-- English, Czech translations
 - User-Friendly UI
 - Local audio files
 - Search bar
+- Translations
+- Settings
+- Favorite music
+- Last played
 
 ## Todo
-- [ ] Multiple translations
-- [ ] Settings
-- [ ] Favorites
-- [ ] Last played
 
 ## Something didnt work?
 Make an issue
