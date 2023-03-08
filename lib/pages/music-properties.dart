@@ -1,5 +1,5 @@
+import 'package:audioplayer/utils/strings.dart';
 import 'package:flutter/material.dart';
-import 'package:on_audio_query/on_audio_query.dart';
 
 import '../utils/colors.dart';
 import '../utils/music.dart';
@@ -15,7 +15,7 @@ class MusicProperties extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double megabytes = music.rawModel.size.toDouble() / 1024 / 1024;
-    String fileSize = megabytes.toStringAsFixed(2) + " MB";
+    String fileSize = "${megabytes.toStringAsFixed(2)} MB";
 
 
     return Scaffold(
@@ -30,25 +30,25 @@ class MusicProperties extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     radius: 25,
-                    backgroundColor: darkPrimary.withOpacity(.2),
+                    backgroundColor: Barvy.getColorFromTheme("bg"),
                     child: IconButton(
                         onPressed: () async {
                           Navigator.pop(context);
                         },
-                        icon: Icon(Icons.arrow_back_ios_new_outlined, color: darkPrimary,)
+                        icon: Icon(Icons.arrow_back_ios_new_outlined, color: Barvy.getColorFromTheme("primary"),)
                     ),
                   ),
-                  const Text("Informace o hudbě", style: TextStyle(
+                  Text(Strings().translate("info-music"), style: const TextStyle(
                     fontSize: 21,
                   ),),
                   CircleAvatar(
                     radius: 25,
-                    backgroundColor: darkPrimary.withOpacity(.2),
+                    backgroundColor: Barvy.getColorFromTheme("bg"),
                     child: IconButton(
                         onPressed: () async {
 
                         },
-                        icon: Icon(Icons.music_note, color: darkPrimary,)
+                        icon: Icon(Icons.music_note, color: Barvy.getColorFromTheme("primary"),)
                     ),
                   ),
                 ],
@@ -56,20 +56,19 @@ class MusicProperties extends StatelessWidget {
 
               const SizedBox(height: 10,),
               CircleAvatar(
-                radius: 102,
-                backgroundColor: darkPrimary.withOpacity(.7),
+                radius: 105,
+                backgroundColor: Barvy.getColorFromTheme("bg"),
                 child: CircleAvatar(
                   radius: 100,
-                  backgroundImage: AssetImage(
-                      "assets/images/music-icon.png"
-                  ),
+                  backgroundColor: primary,
+                  child: Icon(Icons.music_note, size: 120, color: Barvy.getColorFromTheme("primary"),),
                 ),
               ),
 
               const SizedBox(height: 15,),
               Text(music.title, style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
               const SizedBox(height: 7,),
-              Text(music.author, style: TextStyle(fontSize: 20, color: darkPrimary.withOpacity(.65)),),
+              Text(music.author, style: TextStyle(fontSize: 20, color: Barvy.getColorFromTheme("primary").withOpacity(.65)),),
 
 
               const SizedBox(height: 15,),
@@ -77,9 +76,9 @@ class MusicProperties extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Velikost: ~${fileSize}", style: const TextStyle(fontSize: 18),),
-                  Text("Album: ${music.rawModel.album}", style: const TextStyle(fontSize: 18),),
-                  Text("Koncovka: ${music.rawModel.fileExtension}", style: const TextStyle(fontSize: 18),),
+                  Text("${Strings().translate("size")}: ~$fileSize", style: const TextStyle(fontSize: 18),),
+                  Text("${Strings().translate("album")}: ${music.rawModel.album}", style: const TextStyle(fontSize: 18),),
+                  Text("${Strings().translate("extension")}: ${music.rawModel.fileExtension}", style: const TextStyle(fontSize: 18),),
                 ],
               ),
 

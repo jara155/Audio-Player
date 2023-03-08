@@ -17,19 +17,18 @@ class ThemeProvider extends ChangeNotifier {
 class Themes {
   static final dark = ThemeData(
     scaffoldBackgroundColor: Barvy.Hex("242b40").withOpacity(.45),
-    textTheme: TextTheme(bodyMedium: TextStyle(color: darkPrimary)),
+    textTheme: TextTheme(bodyMedium: TextStyle(color: Barvy().colors["dark"]["primary"])),
     colorScheme: const ColorScheme.dark(),
-    iconTheme: IconThemeData(color: darkPrimary, size: 32),
-    // fontFamily: GoogleFonts.sora().fontFamily,
+    iconTheme: IconThemeData(color: Barvy().colors["dark"]["secondary"], size: 32),
     fontFamily: "Space-Grotesk",
     dividerColor: Colors.transparent,
   );
 
   static final light = ThemeData(
-    scaffoldBackgroundColor: lightBg,
-    textTheme: TextTheme(bodyMedium: TextStyle(color: lightPrimary)),
+    scaffoldBackgroundColor: Barvy().colors["light"]["bg"],
+    textTheme: TextTheme(bodyMedium: TextStyle(color: Barvy().colors["light"]["primary"])),
     colorScheme: const ColorScheme.highContrastLight(),
-    iconTheme: IconThemeData(color: lightPrimary, size: 32),
+    iconTheme: IconThemeData(color: Barvy().colors["light"]["primary"], size: 32),
     fontFamily: "Space-Grotesk",
       dividerColor: Colors.transparent
   );
