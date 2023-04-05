@@ -1,5 +1,6 @@
 <p align="center">
   <p align="center">
+    <img src="https://cdn.discordapp.com/attachments/794225900791136286/1093292791800528966/audio-player.png" width="250" />
     <h3 align="center">Audio Player</h3>
   </p>
 </p>
